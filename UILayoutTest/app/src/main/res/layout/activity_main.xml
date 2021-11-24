@@ -17,11 +17,13 @@
         android:layout_weight="1"
         android:hint="Type something" />
 
+    <!--
+        按钮自适应长宽对各种屏幕的适配比较友好
+    -->
     <Button
         android:id="@+id/send"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="send" />
 
     <!--
