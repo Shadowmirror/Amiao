@@ -13,7 +13,8 @@
         android:gravity="center"
         android:text="This is TextView"
         android:textColor="#00ff00"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button"
@@ -30,4 +31,10 @@
         app:layout_constraintTop_toBottomOf="@+id/button"
         android:maxLines="2"
         android:hint="Type something here"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_view"
+        android:src="@drawable/img_1"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
