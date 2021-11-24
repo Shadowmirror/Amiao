@@ -32,11 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.button:
                 // 此处添加逻辑
-                if (progressBar.getVisibility() == View.GONE) {
-                    progressBar.setVisibility(View.VISIBLE);
-                } else {
-                    progressBar.setVisibility(View.GONE);
-                }
+                int progress = progressBar.getProgress();
+                progress = progress + 10;
+                progressBar.setProgress(progress);
                 break;
             default:
                 break;
