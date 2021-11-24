@@ -24,6 +24,7 @@
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
+            android:launchMode="singleInstance"
             android:exported="false">
             <intent-filter>
                 <action android:name="miao.kmirror.activitytest.ACTION_START" />
