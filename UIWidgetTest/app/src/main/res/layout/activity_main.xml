@@ -14,4 +14,11 @@
         android:textSize="25sp"
         android:textColor="#00ff00"
         android:text="This is TextView" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/text_view"
+        android:textAllCaps="false"
+        android:text="button"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
