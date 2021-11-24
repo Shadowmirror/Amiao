@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.io.FileReader;
 
 public class FirstActivity extends AppCompatActivity {
+    public static final String TAG = "FirstActivity";
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -65,5 +66,11 @@ public class FirstActivity extends AppCompatActivity {
                 }
             default:
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
     }
 }

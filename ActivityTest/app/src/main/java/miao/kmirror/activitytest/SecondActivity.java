@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class SecondActivity extends AppCompatActivity {
+    public static final String TAG = "SecondActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +24,11 @@ public class SecondActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
     }
 }
