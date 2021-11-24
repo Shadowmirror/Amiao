@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.FileReader;
+
 public class FirstActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -39,30 +41,13 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+        Log.d("FirstActivity", this.toString());
         Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(FirstActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
-//                finish();
-
-//                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-
-//                Intent intent = new Intent("miao.kmirror.activitytest.ACTION_START");
-//                intent.addCategory("miao.kmirror.activitytest.MY_CATEGORY");
-
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse("https://www.baidu.com"));
-
-//                Intent intent = new Intent(Intent.ACTION_DIAL);
-//                intent.setData(Uri.parse("tel:10086"));
-
-                String data = "Hello Kmirror";
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                intent.putExtra("extra_data", data);
-//                startActivity(intent);
-                startActivityForResult(intent, 1);
-
+                Intent intent = new Intent(FirstActivity.this, FirstActivity.class);
+                startActivity(intent);
             }
 
         });
