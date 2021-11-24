@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) {
+            Log.d(TAG, "miao");
+            String tempData = savedInstanceState.getString("data_key");
+            Log.d("NormalActivity", tempData);
+        }
         Button startNormalActivity = (Button) findViewById(R.id.start_normal_activity);
         Button startDialogActivity = (Button) findViewById(R.id.start_dialog_activity);
         startNormalActivity.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onStart() {
@@ -72,4 +78,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onRestart");
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String tempData = "This is some temp data!";
+        outState.putString("data_key", tempData);
+    }
 }

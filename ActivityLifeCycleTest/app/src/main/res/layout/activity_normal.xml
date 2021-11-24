@@ -10,6 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is a normal activity"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:id="@+id/normal_text"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/kill_normal"
+        android:text="kill normal"
+        app:layout_constraintTop_toBottomOf="@+id/normal_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
