@@ -3,6 +3,7 @@ package miao.kmirror.uiwidgettest;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.media.Image;
 import android.os.Bundle;
@@ -34,30 +35,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.button:
                 // 此处添加逻辑
-                // 通过AlterDialog.Builder创建一个AlertDialog的实例
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+
+                /*
+                * ProgressDialog 和 AlertDialog 有点类似，都可以在界面上弹出一个对话框，都能够屏蔽掉其他控件的交互能力
+                * 不同的是， ProgressDialog 会在对话框中显示一个进度条，一般用于表示当前操作比较耗时
+                *
+                * 注意：如果在 setCancelable() 中传入了 false，表示 ProgressDialog 是不能通过 Back 键取消掉的，
+                *   此时就一定要在代码中做好控制，当数据加载完成后必须要调用 ProgressDialog 的 dismiss() 方法
+                *   来关闭对话框，否则 ProgressDialog 将会一直存在。
+                * */
+                // 构建一个ProgressDialog对象
+                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
                 // 设置标题
-                dialog.setTitle("This is a Dialog");
+                progressDialog.setTitle("这是ProgressDialog的标题");
                 // 设置内容
-                dialog.setMessage("这是一些重要的东西");
-                // 是否可以使用Back键关闭对话框
-                dialog.setCancelable(false);
-                // 设置确认按钮的点击事件
-                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                progressDialog.setMessage("这是ProgressDialog的内容");
+                // 设置可否取消
+                progressDialog.setCancelable(true);
+                progressDialog.show();
 
-                    }
-                });
-                // 设置取消按钮的点击事件
-                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
-                // 调用show()方法显示
-                dialog.show();
                 break;
             default:
                 break;
