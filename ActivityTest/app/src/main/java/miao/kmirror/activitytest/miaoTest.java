@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class miaoTest extends AppCompatActivity {
+public class miaoTest extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

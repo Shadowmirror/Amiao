@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.io.FileReader;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     public static final String TAG = "FirstActivity";
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
