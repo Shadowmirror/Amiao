@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityLifeCycleTest">
         <activity
+            android:name=".DialogActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity
+            android:name=".NormalActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -4,21 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".DialogActivity">
 
-    <Button
-        android:id="@+id/start_normal_activity"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start NormalActivity"
+        android:text="This is a dialog activity"
         tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/start_dialog_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start DialogActivity"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/start_normal_activity"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
