@@ -29,4 +29,12 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("data_return", "Hello Gmirror(Back)");
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }
