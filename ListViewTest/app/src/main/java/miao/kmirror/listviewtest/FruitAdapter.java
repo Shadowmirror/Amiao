@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class FruitAdapter extends ArrayAdapter<Fruit> {
@@ -37,17 +39,32 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         // 如果 convertView 为 null，则使用 LayoutInflater 去加载布局，如果不为 null 则直接对 convertView 进行重用。
         // 这样就大大提高了 ListView 的运行效率
         View view;
+        ViewHolder viewHolder;
 
-        if(convertView == null){
-           view =  LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-        }else{
+        if (convertView == null) {
+            view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+            viewHolder = new ViewHolder();
+            Log.d("MainActivity", "convertView == null");
+            viewHolder.fruitImage = (ImageView) view.findViewById(R.id.fruit_image);
+            viewHolder.fruitName = (TextView) view.findViewById(R.id.fruit_name);
+            Log.d("MainActivity", "setTag");
+            // 将 ViewHolder 存储在 View 中。
+            view.setTag(viewHolder);
+        } else {
             view = convertView;
+            // 重新获取 ViewHolder
+            Log.d("MainActivity", "getTag");
+
+            viewHolder = (ViewHolder) view.getTag();
+
         }
-        ImageView imageView = view.findViewById(R.id.fruit_image);
-        TextView textView =  view.findViewById(R.id.fruit_name);
-        System.out.println(fruit.getName());
-        imageView.setImageResource(fruit.getImageId());
-        textView.setText(fruit.getName());
+        viewHolder.fruitImage.setImageResource(fruit.getImageId());
+        viewHolder.fruitName.setText(fruit.getName());
         return view;
+    }
+
+    class ViewHolder {
+        ImageView fruitImage;
+        TextView fruitName;
     }
 }
