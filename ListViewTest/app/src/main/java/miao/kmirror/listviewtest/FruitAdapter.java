@@ -33,10 +33,19 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         Fruit fruit = getItem(position);
         // 这里 LayoutInflater 的 inflate() 方法接收 3 个参数，前两个参数我们已经知道什么意思了，
         // 第三个参数指定成 false，表示只让我们在父布局中声明的 layout 属性生效，但不会为这个 View 添加父布局，
-        // 因为一旦 View 有了父布局之后，它就不能再添加到 ListView 中了。
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+
+        // 如果 convertView 为 null，则使用 LayoutInflater 去加载布局，如果不为 null 则直接对 convertView 进行重用。
+        // 这样就大大提高了 ListView 的运行效率
+        View view;
+
+        if(convertView == null){
+           view =  LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+        }else{
+            view = convertView;
+        }
         ImageView imageView = view.findViewById(R.id.fruit_image);
         TextView textView =  view.findViewById(R.id.fruit_name);
+        System.out.println(fruit.getName());
         imageView.setImageResource(fruit.getImageId());
         textView.setText(fruit.getName());
         return view;
