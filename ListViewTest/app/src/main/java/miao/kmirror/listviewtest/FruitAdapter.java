@@ -1,5 +1,6 @@
 package miao.kmirror.listviewtest;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,7 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class FruitAdapter extends ArrayAdapter {
+public class FruitAdapter extends ArrayAdapter<Fruit> {
     private int resourceId;
 
     public FruitAdapter(@NonNull Context context, int resource, @NonNull List<Fruit> objects) {
@@ -24,10 +25,10 @@ public class FruitAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Fruit fruit = (Fruit) getItem(position);
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-        ImageView imageView = (ImageView) view.findViewById(R.id.fruit_image);
-        TextView textView = (TextView) view.findViewById(R.id.fruit_name);
+        Fruit fruit = getItem(position);
+        @SuppressLint("ViewHolder") View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+        ImageView imageView = view.findViewById(R.id.fruit_image);
+        TextView textView =  view.findViewById(R.id.fruit_name);
         imageView.setImageResource(fruit.getImageId());
         textView.setText(fruit.getName());
         return view;
