@@ -1,4 +1,4 @@
-package miao.kmirror.listviewtest;
+package miao.kmirror.recyclerview;
 
 public class Fruit {
     private String name;
