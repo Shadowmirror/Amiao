@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * @author Kmirror
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override

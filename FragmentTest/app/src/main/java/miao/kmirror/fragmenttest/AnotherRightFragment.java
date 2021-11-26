@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+/**
+ * @author Kmirror
+ */
 public class AnotherRightFragment extends Fragment {
 
     @Nullable

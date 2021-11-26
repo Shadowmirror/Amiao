@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
+/**
+ * @author Kmirror
+ */
 public class LeftFragment extends Fragment {
     @Nullable
     @Override
