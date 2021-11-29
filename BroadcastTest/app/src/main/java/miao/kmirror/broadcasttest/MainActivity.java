@@ -1,6 +1,7 @@
 package miao.kmirror.broadcasttest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,43 +18,45 @@ public class MainActivity extends AppCompatActivity {
 
     private IntentFilter intentFilter;
 
-    private NetworkChangeReceiver networkChangeReceiver;
+    private LocalReceiver localReceiver;
+
+    private LocalBroadcastManager localBroadcastManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // 获取实例
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent("miao.kmirror.broadcasttest.Kmirror");
-                sendOrderedBroadcast(intent, null);
+                Intent intent = new Intent("miao.kmirror.broadcasttest.LOCAL_BROADCAST");
+                // 发送本地广播
+                localBroadcastManager.sendBroadcast(intent);
             }
         });
 
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("miao.kmirror.broadcasttest.LOCAL_BROADCAST");
+        localReceiver = new LocalReceiver();
+        // 注册本地广播监听器
+        localBroadcastManager.registerReceiver(localReceiver, intentFilter);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // 动态注册的广播接收器一定都要取消注册才行，这里我们是在 onDestroy()方法中通过调用 unregisterReceiver()
-        // 方法来实现的。
-        unregisterReceiver(networkChangeReceiver);
+        localBroadcastManager.unregisterReceiver(localReceiver);
     }
 
-    class NetworkChangeReceiver extends BroadcastReceiver{
+    class LocalReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            ConnectivityManager connectivityManager =
-                    (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            if(networkInfo != null && networkInfo.isAvailable()){
-                Toast.makeText(context, "网络已启用", Toast.LENGTH_SHORT).show();
-            } else{
-                Toast.makeText(context, "网络已断开", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(context, "received local broadcast", Toast.LENGTH_SHORT).show();
         }
     }
 }
