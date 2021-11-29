@@ -81,7 +81,6 @@ public class NewsTitleFragment extends Fragment {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             TextView newsTitleText;
-
             public ViewHolder(View view) {
                 super(view);
                 newsTitleText = (TextView) view.findViewById(R.id.news_title);
