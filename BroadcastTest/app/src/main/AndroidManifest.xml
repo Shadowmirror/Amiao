@@ -16,7 +16,7 @@
             android:name=".MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:priority="100">
                 <action android:name="miao.kmirror.broadcasttest.Kmirror" />
             </intent-filter>
         </receiver>

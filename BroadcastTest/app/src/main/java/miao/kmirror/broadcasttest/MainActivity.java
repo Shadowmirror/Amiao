@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent("miao.kmirror.broadcasttest.Kmirror");
-                sendBroadcast(intent);
+                sendOrderedBroadcast(intent, null);
             }
         });
 
