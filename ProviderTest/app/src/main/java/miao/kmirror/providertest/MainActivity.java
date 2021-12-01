@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * @author EDY
+ */
 public class MainActivity extends AppCompatActivity {
 
     private String newId;
