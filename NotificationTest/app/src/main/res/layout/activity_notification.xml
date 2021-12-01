@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/send_notice"
-        android:text="Send notice" />
+        android:layout_centerInParent="true"
+        android:text="This is notification layout"
+        android:textSize="24sp" />
 </LinearLayout>
