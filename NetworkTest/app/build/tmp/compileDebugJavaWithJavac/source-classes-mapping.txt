@@ -1,0 +1,6 @@
+miao/kmirror/networktest/MainActivity.java
+ miao.kmirror.networktest.MainActivity
+ miao.kmirror.networktest.MainActivity$1
+ miao.kmirror.networktest.MainActivity$2
+miao/kmirror/networktest/BuildConfig.java
+ miao.kmirror.networktest.BuildConfig
