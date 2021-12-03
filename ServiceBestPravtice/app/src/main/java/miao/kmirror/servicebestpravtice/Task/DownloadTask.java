@@ -173,6 +173,7 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
         if (response != null && response.isSuccessful()) {
             long contentLength = response.body().contentLength();
             response.body().close();
+            return contentLength;
         }
         return 0;
     }

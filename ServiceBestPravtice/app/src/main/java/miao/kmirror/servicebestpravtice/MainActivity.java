@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         switch (v.getId()) {
             case R.id.start_download:
-                String url = "https://input-download.kfsafe.cn/Kafan_Input.exe";
+                String url = "https://ghproxy.fsou.cc/https://github.com/Kr328/ClashForAndroid/releases/download/v2.4.14/cfa-2.4.14-foss-arm64-v8a-release.apk";
                 downloadBinder.startDownload(url);
                 break;
             case R.id.pause_download:

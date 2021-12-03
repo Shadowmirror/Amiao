@@ -1,6 +1,7 @@
 package miao.kmirror.servicebestpravtice.Service;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -120,11 +121,28 @@ public class DownloadService extends Service {
     private Notification getNotification(String title, int progress) {
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-        builder.setContentIntent(pendingIntent);
-        builder.setContentTitle(title);
+        NotificationCompat.Builder builder = null;
+
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
+            String channelId = "miao.kmirror.servicebestpractice";
+            String channelName = "BestPractice";
+            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
+            manager.createNotificationChannel(channel);
+            builder = new NotificationCompat.Builder(this, channelId);
+            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+            builder.setContentIntent(pendingIntent);
+            builder.setContentTitle(title);
+        } else {
+            builder = new NotificationCompat.Builder(this);
+            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+            builder.setContentIntent(pendingIntent);
+            builder.setContentTitle(title);
+        }
+
+
         if (progress >= 0) {
             builder.setContentText(progress + "%");
             builder.setProgress(100, progress, false);
