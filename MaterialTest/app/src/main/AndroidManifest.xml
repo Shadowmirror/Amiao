@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialTest">
         <activity
+            android:name=".FruitActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="Kmirror"
-            android:exported="true">
+            android:exported="true"
+            android:label="Kmirror">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
