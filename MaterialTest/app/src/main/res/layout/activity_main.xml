@@ -19,20 +19,13 @@
 
     </FrameLayout>
 
-    <!--
-        layout_gravity 指定从那边拉出菜单栏
-        start 根据系统选择（英语，汉语默认左边，阿拉伯语默认右边）
-        left
-        right
-
-    -->
-    <TextView
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#FFF"
-        android:text="This is menu"
-        android:textSize="30sp" />
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
