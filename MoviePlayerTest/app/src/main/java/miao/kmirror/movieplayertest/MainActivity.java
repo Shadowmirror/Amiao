@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initVideoPath() {
         File file = new File(getExternalFilesDir(null), "movie.mp4");
-        Log.i(TAG, "initVideoPath: ");
+        Log.i(TAG, "initVideoPath: " + file.getPath());
         // 指定视频文件的路径
         videoView.setVideoPath(file.getPath());
     }
