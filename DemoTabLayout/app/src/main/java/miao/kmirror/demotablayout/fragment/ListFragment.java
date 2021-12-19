@@ -27,7 +27,18 @@ public class ListFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        /**
+         * public LinearLayoutManager(Context context) {
+         *     this(context, RecyclerView.DEFAULT_ORIENTATION, false);
+         * }
+         *
+         *
+         * static final int DEFAULT_ORIENTATION = VERTICAL;
+         *
+         * 所以默认是垂直布局
+         * */
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
+
         mRecyclerView.setAdapter(new RecyclerViewAdapter(getActivity()));
     }
 }
