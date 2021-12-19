@@ -1,15 +1,21 @@
 package miao.kmirror.demotablayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -32,6 +38,35 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         mViewPager = findViewById(R.id.viewpager);
         initViewPager();
+        initNavigationView();
+    }
+
+    private void initNavigationView() {
+        // 设置菜单按钮
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mDrawerLayout = findViewById(R.id.dl_main_drawer);
+        NavigationView navigationView = findViewById(R.id.nv_main_navigation);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(item -> {
+                // 设置点击后表示为选中状态
+                item.setChecked(true);
+                String title = item.getTitle().toString();
+                Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                // 关闭导航菜单
+                mDrawerLayout.closeDrawers();
+                return true;
+            });
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initViewPager() {

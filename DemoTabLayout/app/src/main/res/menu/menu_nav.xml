@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_kmirror"
+            android:title="Kmirror" />
+        <item
+            android:id="@+id/nav_gmirror"
+            android:title="Gmirrror" />
+        <item
+            android:id="@+id/nav_amirror"
+            android:title="Amirror" />
+        <item
+            android:id="@+id/nav_bmirror"
+            android:title="Bmirror" />
+    </group>
+    <item android:title="其他">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:title="关于" />
+            <item
+                android:id="@+id/nav_update"
+                android:title="更新" />
+        </menu>
+    </item>
+
+</menu>
