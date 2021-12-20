@@ -2,15 +2,19 @@ package miao.kmirror.viewlearn;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Scroller;
 
 import androidx.annotation.Nullable;
 
 public class CustomView extends View {
 
+    private static final String TAG = "MainActivity";
+    private Scroller mScroller;
     private int lastX;
     private int lastY;
 
@@ -20,6 +24,8 @@ public class CustomView extends View {
 
     public CustomView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mScroller = new Scroller(context);
+
     }
 
     public CustomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -78,5 +84,27 @@ public class CustomView extends View {
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (mScroller.computeScrollOffset()) {
+            ((View) getParent()).scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            Log.i(TAG, "computeScroll: ");
+            invalidate();
+        }
+    }
+
+    public void smoothScrollTo(int destX, int destY) {
+        int scrollX = getScrollX();
+        int scrollY = getScrollY();
+        int deltaX = destX - scrollX;
+        int deltaY = destY - scrollY;
+        Log.i(TAG, "smoothScrollTo: startScroll Before");
+        mScroller.startScroll(scrollX, 0, deltaX, deltaY, 2000);
+        Log.i(TAG, "smoothScrollTo: startScroll After");
+
+        invalidate();
     }
 }

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //        ObjectAnimator.ofFloat(customView, "translationX", 0, 300)
 //                .setDuration(1000)
 //                .start();
+        customView.smoothScrollTo(-400, -200);
 
 
     }
