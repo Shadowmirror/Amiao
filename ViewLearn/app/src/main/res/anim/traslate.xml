@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
+    <!-- android:fillAfter="true" 解决平移后返回原来位置 -->
+    <translate
+        android:duration="1000"
+        android:fromXDelta="0"
+        android:toXDelta="300" />
+</set>

@@ -13,9 +13,12 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -33,13 +36,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_coordinator_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mViewPager = findViewById(R.id.viewpager);
         initViewPager();
-        initNavigationView();
+//        initFloatButton();
+//        initNavigationView();
     }
+
+    private void initFloatButton() {
+        FloatingActionButton floatButton = findViewById(R.id.float_button);
+        floatButton.setOnClickListener(v -> {
+            Snackbar.make(v ,
+                    "点击成功",
+                    Snackbar.LENGTH_SHORT).show();
+        });
+    }
+
 
     private void initNavigationView() {
         // 设置菜单按钮
