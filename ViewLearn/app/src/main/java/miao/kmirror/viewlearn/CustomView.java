@@ -66,6 +66,13 @@ public class CustomView extends View {
 //                layoutParams.leftMargin = getLeft() + offsetX;
 //                layoutParams.topMargin = getTop() + offsetY;
 //                setLayoutParams(layoutParams);
+
+                // scrollTo 与 scrollBy
+                /**
+                 * 这里是移动父控件
+                 * 简单理解父控件是画布，CustomView 位置确定，手机屏幕位置不动，所以是负数，相对移动
+                 * */
+                ((View) getParent()).scrollBy(-offsetX, -offsetY);
                 break;
             default:
                 break;

@@ -25,15 +25,15 @@ public class MainActivity extends AppCompatActivity {
 //         * */
 //        customView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.translate));
 
-        /**
-         * 属性动画就能解决上述问题
-         * 0 为初始偏移位置
-         * 300 为偏移多少距离
-         * 1000 为偏移时间为 1s
-         * */
-        ObjectAnimator.ofFloat(customView, "translationX", 0, 300)
-                .setDuration(1000)
-                .start();
+//        /**
+//         * 属性动画就能解决上述问题
+//         * 0 为初始偏移位置
+//         * 300 为偏移多少距离
+//         * 1000 为偏移时间为 1s
+//         * */
+//        ObjectAnimator.ofFloat(customView, "translationX", 0, 300)
+//                .setDuration(1000)
+//                .start();
 
 
     }
