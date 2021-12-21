@@ -2,11 +2,16 @@ package miao.kmirror.viewlearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Property;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Scroller;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,8 +39,19 @@ public class MainActivity extends AppCompatActivity {
 //        ObjectAnimator.ofFloat(customView, "translationX", 0, 300)
 //                .setDuration(1000)
 //                .start();
-        customView.smoothScrollTo(-400, -200);
 
+//        customView.smoothScrollTo(-400, -200);
+
+
+//        ObjectAnimator animator1 = ObjectAnimator.ofFloat(customView, "translationX",0.0f, 200.0f, 0f);
+//        ObjectAnimator animator2 = ObjectAnimator.ofFloat(customView, "scaleX",1.0f, 2.0f);
+//        ObjectAnimator animator3 = ObjectAnimator.ofFloat(customView, "rotationX",0.0f, 90.0f, 0f);
+//        AnimatorSet set = new AnimatorSet();
+//        set.setDuration(1000);
+//        set.play(animator1).with(animator2).after(animator3);
+//        set.start();
+
+        customView.smoothScrollTo(-400, 0);
 
     }
 }

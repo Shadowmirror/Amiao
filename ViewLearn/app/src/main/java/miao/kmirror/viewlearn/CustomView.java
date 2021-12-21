@@ -91,8 +91,11 @@ public class CustomView extends View {
         super.computeScroll();
         if (mScroller.computeScrollOffset()) {
             ((View) getParent()).scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-            Log.i(TAG, "computeScroll: ");
-            invalidate();
+            int currX = mScroller.getCurrX();
+            int currY = mScroller.getCurrY();
+            Log.i(TAG, "computeScroll:  currX = " + currX);
+            Log.i(TAG, "computeScroll:  currY = " + currY);
+           invalidate();
         }
     }
 
